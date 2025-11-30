@@ -1,9 +1,5 @@
 import java.util.Scanner;
 
-/**
- * ReviewerPdfWriter class - Displays review content for each topic
- * Demonstrates organized content delivery and user interaction
- */
 public class ReviewerPdfWriter {
     private Scanner scanner;
     
@@ -11,10 +7,6 @@ public class ReviewerPdfWriter {
         this.scanner = new Scanner(System.in);
     }
     
-    /**
-     * Displays review content for the selected topic
-     * @param topic the topic to review
-     */
     public void displayReview(String topic) {
         System.out.println("\n" + "═".repeat(60));
         System.out.println("           REVIEW MODE: " + topic.toUpperCase());
@@ -50,9 +42,6 @@ public class ReviewerPdfWriter {
         scanner.nextLine();
     }
     
-    /**
-     * Displays Introduction to OOP review
-     */
     private void displayIntroductionReview() {
         System.out.println("📚 INTRODUCTION TO OBJECT-ORIENTED PROGRAMMING\n");
         
@@ -101,9 +90,6 @@ public class ReviewerPdfWriter {
         System.out.println("✓ Access modifiers control data visibility");
     }
     
-    /**
-     * Displays Java Conditionals review
-     */
     private void displayConditionalsReview() {
         System.out.println("📚 JAVA CONDITIONALS\n");
         
@@ -154,9 +140,6 @@ public class ReviewerPdfWriter {
         System.out.println("✓ Ternary operator is shorthand for simple if-else");
     }
     
-    /**
-     * Displays Java Loops review
-     */
     private void displayLoopsReview() {
         System.out.println("📚 JAVA LOOPS\n");
         
@@ -209,9 +192,6 @@ public class ReviewerPdfWriter {
         System.out.println("✓ Avoid infinite loops by ensuring condition changes");
     }
     
-    /**
-     * Displays Java Arrays review
-     */
     private void displayArraysReview() {
         System.out.println("📚 JAVA ARRAYS\n");
         
@@ -272,9 +252,6 @@ public class ReviewerPdfWriter {
         System.out.println("✓ Multi-dimensional arrays create matrices");
     }
     
-    /**
-     * Displays Encapsulation review
-     */
     private void displayEncapsulationReview() {
         System.out.println("📚 ENCAPSULATION\n");
         
@@ -333,10 +310,7 @@ public class ReviewerPdfWriter {
         System.out.println("✓ Encapsulation improves code maintainability");
         System.out.println("✓ Follow JavaBean conventions");
     }
-    
-    /**
-     * Displays Inheritance review
-     */
+   
     private void displayInheritanceReview() {
         System.out.println("📚 INHERITANCE\n");
         
@@ -402,9 +376,6 @@ public class ReviewerPdfWriter {
         System.out.println("✓ Java has single inheritance for classes");
     }
     
-    /**
-     * Displays Polymorphism review
-     */
     private void displayPolymorphismReview() {
         System.out.println("📚 POLYMORPHISM\n");
         

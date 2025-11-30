@@ -128,9 +128,6 @@ public class QuestionGenerator {
         return questions;
     }
     
-    /**
-     * Generates Java Conditionals questions
-     */
     private List<Question> generateConditionalsQuestions() {
         List<Question> questions = new ArrayList<>();
         
@@ -219,9 +216,6 @@ public class QuestionGenerator {
         return questions;
     }
     
-    /**
-     * Generates Java Loops questions
-     */
     private List<Question> generateLoopsQuestions() {
         List<Question> questions = new ArrayList<>();
         
@@ -312,9 +306,6 @@ public class QuestionGenerator {
         return questions;
     }
     
-    /**
-     * Generates Java Arrays questions
-     */
     private List<Question> generateArraysQuestions() {
         List<Question> questions = new ArrayList<>();
         
@@ -404,9 +395,6 @@ public class QuestionGenerator {
         return questions;
     }
     
-    /**
-     * Generates Encapsulation questions
-     */
     private List<Question> generateEncapsulationQuestions() {
         List<Question> questions = new ArrayList<>();
         
@@ -499,9 +487,6 @@ public class QuestionGenerator {
         return questions;
     }
     
-    /**
-     * Generates Inheritance questions
-     */
     private List<Question> generateInheritanceQuestions() {
         List<Question> questions = new ArrayList<>();
         
@@ -593,9 +578,6 @@ public class QuestionGenerator {
         return questions;
     }
     
-    /**
-     * Generates Polymorphism questions
-     */
     private List<Question> generatePolymorphismQuestions() {
         List<Question> questions = new ArrayList<>();
         

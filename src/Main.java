@@ -123,12 +123,7 @@ public class Main {
             System.out.println("\n Invalid topic selection!");
         }
     }
-    
-    /**
-     * Runs a quiz and returns the session record
-     * @param topic the quiz topic
-     * @return SessionRecord of the quiz
-     */
+
     private static SessionRecord runQuiz(String topic) {
         QuestionGenerator questionGenerator = new QuestionGenerator();
         java.util.List<model.Question> questions = questionGenerator.generateQuestions(topic);
@@ -182,10 +177,6 @@ public class Main {
         return new SessionRecord(topic, score, questions.size());
     }
     
-    /**
-     * Gets user's answer with validation
-     * @return user's answer (1-4)
-     */
     private static int getUserAnswer() throws Exception {
         System.out.print("\nYour answer (1-4): ");
         
@@ -203,13 +194,7 @@ public class Main {
         
         return answer;
     }
-    
-    /**
-     * Displays quiz results
-     * @param topic quiz topic
-     * @param score user's score
-     * @param total total questions
-     */
+
     private static void displayQuizResults(String topic, int score, int total) {
         System.out.println("\n" + "═".repeat(60));
         System.out.println("                    QUIZ RESULTS");
@@ -263,12 +248,7 @@ public class Main {
         System.out.println("│  [7] Polymorphism                                     │");
         System.out.println("└────────────────────────────────────────────────────────┘");
     }
-    
-    /**
-     * Gets topic name based on choice
-     * @param choice topic number
-     * @return topic name string
-     */
+
     private static String getTopicName(int choice) {
         switch (choice) {
             case 1: return "Introduction";
@@ -281,10 +261,8 @@ public class Main {
             default: return "";
         }
     }
-    
-    
+
     // displays ng user progress and session history
-     
     private static void viewProgress() {
         scanner.nextLine(); // Clear buffer
         
@@ -298,23 +276,18 @@ public class Main {
         scanner.nextLine();
     }
     
-    /**
-     * Confirms logout with user
-     * @return false to exit, true to continue
-     */
     private static boolean confirmLogout() {
         scanner.nextLine(); // Clear buffer
         System.out.print("\nAre you sure you want to logout? (Y/N): ");
         String confirmation = scanner.nextLine().trim().toUpperCase();
         
         if (confirmation.equals("Y") || confirmation.equals("YES")) {
-            // Save user progress before logout
             userManager.saveUserProgress(currentUser);
             System.out.println("\n✓ Progress saved successfully!");
-            return false; // Exit the program
+            return false; 
         }
         
-        return true; // Continue running
+        return true;
     }
     
 

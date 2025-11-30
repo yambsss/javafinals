@@ -1,7 +1,7 @@
-import model.Question;
-import model.SessionRecord;
 import java.util.List;
 import java.util.Scanner;
+import model.Question;
+import model.SessionRecord;
 
 /**
  * QuizRunner class - Manages quiz execution and scoring
@@ -12,20 +12,12 @@ public class QuizRunner {
     private SessionManager sessionManager;
     private QuestionGenerator questionGenerator;
     
-    /**
-     * Constructor
-     * @param sessionManager manages quiz sessions
-     */
     public QuizRunner(SessionManager sessionManager) {
         this.scanner = new Scanner(System.in);
         this.sessionManager = sessionManager;
         this.questionGenerator = new QuestionGenerator();
     }
-    
-    /**
-     * Starts a quiz for the given topic
-     * @param topic the quiz topic
-     */
+
     public void startQuiz(String topic) {
         List<Question> questions = questionGenerator.generateQuestions(topic);
         
@@ -42,7 +34,7 @@ public class QuizRunner {
         System.out.println("You need 8/10 to pass!");
         System.out.println("─".repeat(60));
         
-        // Execute quiz
+        // Execute ng quiz
         for (Question question : questions) {
             System.out.println("\n📝 Question " + questionNumber + "/" + questions.size());
             question.display();
@@ -67,26 +59,18 @@ public class QuizRunner {
             
             questionNumber++;
             
-            // Pause between questions
             if (questionNumber <= questions.size()) {
                 System.out.print("\nPress Enter to continue...");
                 scanner.nextLine();
             }
         }
         
-        // Display results
         displayResults(topic, score, questions.size());
         
-        // Record session
         SessionRecord record = new SessionRecord(topic, score, questions.size());
         sessionManager.addSession(record);
     }
-    
-    /**
-     * Gets user's answer with validation
-     * @return user's answer (1-4)
-     * @throws InvalidAnswerException if answer is invalid
-     */
+
     private int getUserAnswer() throws InvalidAnswerException {
         System.out.print("\nYour answer (1-4): ");
         
@@ -104,13 +88,7 @@ public class QuizRunner {
         
         return answer;
     }
-    
-    /**
-     * Displays quiz results
-     * @param topic quiz topic
-     * @param score user's score
-     * @param total total questions
-     */
+
     private void displayResults(String topic, int score, int total) {
         System.out.println("\n" + "═".repeat(60));
         System.out.println("                    QUIZ RESULTS");
@@ -129,9 +107,6 @@ public class QuizRunner {
         System.out.println("═".repeat(60));
     }
     
-    /**
-     * Custom exception for invalid answers
-     */
     private class InvalidAnswerException extends Exception {
         public InvalidAnswerException(String message) {
             super(message);

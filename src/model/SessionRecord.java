@@ -3,10 +3,6 @@ package model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * SessionRecord class - Records quiz session data
- * Demonstrates encapsulation and data management
- */
 public class SessionRecord {
     private String topic;
     private int score;
@@ -14,12 +10,6 @@ public class SessionRecord {
     private LocalDateTime dateTime;
     private boolean passed;
     
-    /**
-     * Constructor for SessionRecord
-     * @param topic the quiz topic
-     * @param score the score achieved
-     * @param totalQuestions total number of questions
-     */
     public SessionRecord(String topic, int score, int totalQuestions) {
         this.topic = topic;
         this.score = score;
@@ -28,7 +18,6 @@ public class SessionRecord {
         this.passed = score >= 8; // Pass threshold is 8/10
     }
     
-    // Getters
     public String getTopic() {
         return topic;
     }
@@ -49,34 +38,19 @@ public class SessionRecord {
         return passed;
     }
     
-    /**
-     * Gets formatted date and time
-     * @return formatted date-time string
-     */
     public String getFormattedDateTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy HH:mm");
         return dateTime.format(formatter);
     }
     
-    /**
-     * Calculates percentage score
-     * @return percentage as double
-     */
     public double getPercentage() {
         return (score * 100.0) / totalQuestions;
     }
     
-    /**
-     * Gets status string (PASSED/FAILED)
-     * @return status string
-     */
     public String getStatus() {
         return passed ? "PASSED ✓" : "FAILED ✗";
     }
     
-    /**
-     * Displays session record details
-     */
     public void display() {
         System.out.println("┌────────────────────────────────────────────────────────┐");
         System.out.printf("│ Topic: %-47s │%n", topic);

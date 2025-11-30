@@ -6,27 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * UserAccount class - Represents a user with authentication and progress tracking
- * Demonstrates encapsulation with private fields and controlled access
- * Implements Serializable for persistent storage
- */
 public class UserAccount implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    // Private fields demonstrating encapsulation
     private String pinCode;
     private String username;
     private List<SessionRecord> sessionHistory;
-    private Map<String, Integer> topicScores; // Best score per topic
+    private Map<String, Integer> topicScores; 
     private int totalQuizzesTaken;
     private long accountCreationDate;
     
-    /**
-     * Constructor for new user account
-     * @param pinCode 5-digit PIN code
-     * @param username user's name
-     */
     public UserAccount(String pinCode, String username) {
         this.pinCode = pinCode;
         this.username = username;
@@ -35,13 +24,9 @@ public class UserAccount implements Serializable {
         this.totalQuizzesTaken = 0;
         this.accountCreationDate = System.currentTimeMillis();
         
-        // Initialize topic scores
         initializeTopicScores();
     }
     
-    /**
-     * Initializes all topics with score of 0
-     */
     private void initializeTopicScores() {
         String[] topics = {"Introduction", "Conditionals", "Loops", 
                           "Arrays", "Encapsulation", "Inheritance", "Polymorphism"};
@@ -50,25 +35,15 @@ public class UserAccount implements Serializable {
         }
     }
     
-    /**
-     * Verifies if entered PIN matches account PIN
-     * @param enteredPin PIN to verify
-     * @return true if PIN matches, false otherwise
-     */
     public boolean verifyPin(String enteredPin) {
         return this.pinCode.equals(enteredPin);
     }
     
-    /**
-     * Adds a quiz session to history and updates statistics
-     * @param session the session record to add
-     */
     public void addSession(SessionRecord session) {
         if (session != null) {
             sessionHistory.add(session);
             totalQuizzesTaken++;
             
-            // Update best score for topic
             String topic = session.getTopic();
             int currentBest = topicScores.getOrDefault(topic, 0);
             if (session.getScore() > currentBest) {
@@ -77,19 +52,10 @@ public class UserAccount implements Serializable {
         }
     }
     
-    /**
-     * Gets user's best score for a specific topic
-     * @param topic the topic name
-     * @return best score achieved
-     */
     public int getBestScore(String topic) {
         return topicScores.getOrDefault(topic, 0);
     }
     
-    /**
-     * Calculates overall average score across all sessions
-     * @return average score percentage
-     */
     public double getOverallAverage() {
         if (sessionHistory.isEmpty()) {
             return 0.0;
@@ -103,10 +69,6 @@ public class UserAccount implements Serializable {
         return totalPercentage / sessionHistory.size();
     }
     
-    /**
-     * Gets number of topics mastered (score >= 8)
-     * @return count of mastered topics
-     */
     public int getTopicsMastered() {
         int count = 0;
         for (int score : topicScores.values()) {
@@ -117,10 +79,6 @@ public class UserAccount implements Serializable {
         return count;
     }
     
-    /**
-     * Gets count of passed sessions
-     * @return number of passed sessions
-     */
     public int getPassedCount() {
         int count = 0;
         for (SessionRecord session : sessionHistory) {
@@ -131,17 +89,10 @@ public class UserAccount implements Serializable {
         return count;
     }
     
-    /**
-     * Gets count of failed sessions
-     * @return number of failed sessions
-     */
     public int getFailedCount() {
         return totalQuizzesTaken - getPassedCount();
     }
     
-    /**
-     * Displays user's progress dashboard
-     */
     public void displayProgress() {
         System.out.println("\n" + "═".repeat(60));
         System.out.println("                  YOUR PROGRESS");
@@ -168,9 +119,6 @@ public class UserAccount implements Serializable {
         System.out.println("💡 Tip: Review the failed topics and try again!");
     }
     
-    /**
-     * Displays topic mastery status
-     */
     public void displayTopicMastery() {
         System.out.println("\n📚 TOPIC MASTERY STATUS\n");
         System.out.println("┌────────────────────────────────┬──────────┬──────────┐");
@@ -191,7 +139,6 @@ public class UserAccount implements Serializable {
         System.out.printf("\nTopics Mastered: %d/7%n", getTopicsMastered());
     }
     
-    // Getters demonstrating encapsulation
     public String getUsername() {
         return username;
     }
@@ -201,7 +148,7 @@ public class UserAccount implements Serializable {
     }
     
     public List<SessionRecord> getSessionHistory() {
-        return new ArrayList<>(sessionHistory); // Return copy for security
+        return new ArrayList<>(sessionHistory);
     }
     
     public int getTotalQuizzesTaken() {
