@@ -79,7 +79,7 @@ public class Question {
         System.out.println("\n✓ Correct Answer: [" + (correctAnswer + 1) + "] " 
                          + options[correctAnswer]);
         if (!explanation.isEmpty()) {
-            System.out.println("💡 Explanation: " + explanation);
+            System.out.println(" Explanation: " + explanation);
         }
     }
     

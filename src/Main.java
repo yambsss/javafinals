@@ -117,7 +117,7 @@ public class Main {
             if (session != null) {
                 currentUser.addSession(session);
                 userManager.saveUserProgress(currentUser);
-                System.out.println("\n✓ Progress saved to your account!");
+                System.out.println("\n Progress saved to your account!");
             }
         } else {
             System.out.println("\n Invalid topic selection!");
@@ -151,9 +151,9 @@ public class Main {
                 
                 if (question.isCorrect(answer - 1)) {
                     score++;
-                    System.out.println("✓ YEHEYYYYY TAMA! ");
+                    System.out.println(" YEHEYYYYY TAMA! ");
                 } else {
-                    System.out.println("✗ Incorrect!");
+                    System.out.println(" Incorrect!");
                     question.showCorrectAnswer();
                 }
             } catch (Exception e) {
@@ -204,10 +204,10 @@ public class Main {
         System.out.printf("Percentage: %.1f%%%n", (score * 100.0) / total);
         
         if (score >= 8) {
-            System.out.println("Status: ✓ PASSED! 🎉");
+            System.out.println("Status:  PASSED! ");
             System.out.println("\nCongratulations! You can proceed to the next topic!");
         } else {
-            System.out.println("Status: ✗ FAILED");
+            System.out.println("Status:  FAILED");
             System.out.println("\nYou need at least 8/10 to pass. Keep studying!");
         }
         System.out.println("═".repeat(60));
@@ -283,7 +283,7 @@ public class Main {
         
         if (confirmation.equals("Y") || confirmation.equals("YES")) {
             userManager.saveUserProgress(currentUser);
-            System.out.println("\n✓ Progress saved successfully!");
+            System.out.println("\n Progress saved successfully!");
             return false; 
         }
         

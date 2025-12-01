@@ -15,7 +15,7 @@ public class SessionRecord {
         this.score = score;
         this.totalQuestions = totalQuestions;
         this.dateTime = LocalDateTime.now();
-        this.passed = score >= 8; // Pass threshold is 8/10
+        this.passed = score >= 8; 
     }
     
     public String getTopic() {

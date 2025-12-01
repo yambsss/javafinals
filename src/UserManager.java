@@ -34,10 +34,10 @@ public class UserManager {
         try (ObjectInputStream ois = new ObjectInputStream(
                 new FileInputStream(file))) {
             users = (Map<String, UserAccount>) ois.readObject();
-            System.out.println("✓ User data loaded successfully.");
+            System.out.println(" User data loaded successfully.");
         } catch (FileNotFoundException e) {
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("⚠️  Warning: Could not load user data.");
+            System.out.println("  Warning: Could not load user data.");
             System.out.println("   Starting with fresh database.");
         }
     }
@@ -47,7 +47,7 @@ public class UserManager {
                 new FileOutputStream(DATA_FILE))) {
             oos.writeObject(users);
         } catch (IOException e) {
-            System.out.println("❌ Error: Could not save user data.");
+            System.out.println(" Error: Could not save user data.");
             System.out.println("   Your progress may not be saved.");
         }
     }
@@ -75,10 +75,10 @@ public class UserManager {
                     case 3:
                         return null; 
                     default:
-                        System.out.println("\n❌ Invalid choice! Please enter 1-3.");
+                        System.out.println("\n Invalid choice! Please enter 1-3.");
                 }
             } catch (Exception e) {
-                System.out.println("\n❌ Error: " + e.getMessage());
+                System.out.println("\n Error: " + e.getMessage());
                 scanner.nextLine(); 
             }
         }
@@ -114,21 +114,21 @@ public class UserManager {
         String pin = scanner.nextLine().trim();
         
         if (!isValidPin(pin)) {
-            System.out.println("❌ Invalid PIN format! PIN must be exactly 5 digits.");
+            System.out.println(" Invalid PIN format! PIN must be exactly 5 digits.");
             return null;
         }
         
         UserAccount user = users.get(pin);
         if (user == null) {
-            System.out.println("❌ PIN not found! Please check your PIN or create a new account.");
+            System.out.println(" PIN not found! Please check your PIN or create a new account.");
             return null;
         }
         
-        System.out.println("\n✓ Login successful!");
-        System.out.println("Welcome back, " + user.getUsername() + "! 🎉");
+        System.out.println("\n Login successful!");
+        System.out.println("Welcome back, " + user.getUsername() + "! ");
         
         // Display quick stats
-        System.out.println("\n📊 Your Stats:");
+        System.out.println("\n Your Stats:");
         System.out.println("   Quizzes Taken: " + user.getTotalQuizzesTaken());
         System.out.printf("   Average Score: %.1f%%%n", user.getOverallAverage());
         System.out.println("   Topics Mastered: " + user.getTopicsMastered() + "/7");
@@ -150,7 +150,7 @@ public class UserManager {
         String username = scanner.nextLine().trim();
         
         if (username.isEmpty()) {
-            System.out.println("❌ Name cannot be empty!");
+            System.out.println(" Name cannot be empty!");
             return null;
         }
         
@@ -160,12 +160,12 @@ public class UserManager {
             String inputPin = scanner.nextLine().trim();
             
             if (!isValidPin(inputPin)) {
-                System.out.println("❌ Invalid PIN! Must be exactly 5 digits.");
+                System.out.println(" Invalid PIN! Must be exactly 5 digits.");
                 continue;
             }
             
             if (users.containsKey(inputPin)) {
-                System.out.println("❌ This PIN is already taken! Please choose another.");
+                System.out.println(" This PIN is already taken! Please choose another.");
                 continue;
             }
             
@@ -173,7 +173,7 @@ public class UserManager {
             String confirmPin = scanner.nextLine().trim();
             
             if (!inputPin.equals(confirmPin)) {
-                System.out.println("❌ PINs don't match! Please try again.");
+                System.out.println(" PINs don't match! Please try again.");
                 continue;
             }
             
@@ -184,10 +184,10 @@ public class UserManager {
         users.put(pin, newUser);
         saveUsers();
         
-        System.out.println("\n✓ Account created successfully! 🎉");
+        System.out.println("\n✓ Account created successfully! ");
         System.out.println("Your username: " + username);
         System.out.println("Your PIN: " + pin);
-        System.out.println("\n⚠️  IMPORTANT: Please remember your PIN for future logins!");
+        System.out.println("\n  IMPORTANT: Please remember your PIN for future logins!");
         
         System.out.print("\nPress Enter to continue...");
         scanner.nextLine();

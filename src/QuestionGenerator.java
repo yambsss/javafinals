@@ -37,7 +37,6 @@ public class QuestionGenerator {
         return questions;
     }
 
-    //generates ng questions sa introduction to OOP
     private List<Question> generateIntroductionQuestions() {
         List<Question> questions = new ArrayList<>();
         

@@ -69,14 +69,14 @@ public class SessionManager {
     
     public void displayAllSessions() {
         if (sessions.isEmpty()) {
-            System.out.println("\n📊 No quiz sessions recorded yet.");
+            System.out.println("\n No quiz sessions recorded yet.");
             System.out.println("Take a quiz to see your progress here!\n");
             return;
         }
         
-        System.out.println("\n📊 Total Sessions: " + sessions.size());
-        System.out.println("✓ Passed: " + getPassedCount());
-        System.out.println("✗ Failed: " + getFailedCount());
+        System.out.println("\n Total Sessions: " + sessions.size());
+        System.out.println(" Passed: " + getPassedCount());
+        System.out.println(" Failed: " + getFailedCount());
         System.out.println();
         
         for (int i = 0; i < sessions.size(); i++) {
@@ -105,7 +105,7 @@ public class SessionManager {
     
     public void clearAllSessions() {
         sessions.clear();
-        System.out.println("✓ All session records cleared.");
+        System.out.println(" All session records cleared.");
     }
     
     public int getSessionCount() {

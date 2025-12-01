@@ -3,10 +3,6 @@ import java.util.Scanner;
 import model.Question;
 import model.SessionRecord;
 
-/**
- * QuizRunner class - Manages quiz execution and scoring
- * Demonstrates exception handling and user interaction
- */
 public class QuizRunner {
     private Scanner scanner;
     private SessionManager sessionManager;
@@ -22,7 +18,7 @@ public class QuizRunner {
         List<Question> questions = questionGenerator.generateQuestions(topic);
         
         if (questions.isEmpty()) {
-            System.out.println("❌ No questions available for this topic!");
+            System.out.println(" No questions available for this topic!");
             return;
         }
         
@@ -36,7 +32,7 @@ public class QuizRunner {
         
         // Execute ng quiz
         for (Question question : questions) {
-            System.out.println("\n📝 Question " + questionNumber + "/" + questions.size());
+            System.out.println("\n Question " + questionNumber + "/" + questions.size());
             question.display();
             
             try {
@@ -44,17 +40,17 @@ public class QuizRunner {
                 
                 if (question.isCorrect(answer - 1)) {
                     score++;
-                    System.out.println("✓ Correct! 🎉");
+                    System.out.println(" Correct!");
                 } else {
-                    System.out.println("✗ Incorrect!");
+                    System.out.println(" Incorrect!");
                     question.showCorrectAnswer();
                 }
             } catch (InvalidAnswerException e) {
-                System.out.println("❌ " + e.getMessage());
+                System.out.println(" " + e.getMessage());
                 question.showCorrectAnswer();
             } catch (Exception e) {
-                System.out.println("❌ Error processing answer: " + e.getMessage());
-                scanner.nextLine(); // Clear buffer
+                System.out.println(" Error processing answer: " + e.getMessage());
+                scanner.nextLine(); 
             }
             
             questionNumber++;
@@ -75,12 +71,12 @@ public class QuizRunner {
         System.out.print("\nYour answer (1-4): ");
         
         if (!scanner.hasNextInt()) {
-            scanner.next(); // Clear invalid input
+            scanner.next(); 
             throw new InvalidAnswerException("Please enter a number between 1 and 4!");
         }
         
         int answer = scanner.nextInt();
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine(); 
         
         if (answer < 1 || answer > 4) {
             throw new InvalidAnswerException("Answer must be between 1 and 4!");
@@ -98,10 +94,10 @@ public class QuizRunner {
         System.out.printf("Percentage: %.1f%%%n", (score * 100.0) / total);
         
         if (score >= 8) {
-            System.out.println("Status: ✓ PASSED! 🎉");
+            System.out.println("Status:  PASSED! ");
             System.out.println("\nCongratulations! You can proceed to the next topic!");
         } else {
-            System.out.println("Status: ✗ FAILED");
+            System.out.println("Status:  FAILED");
             System.out.println("\nYou need at least 8/10 to pass. Keep studying!");
         }
         System.out.println("═".repeat(60));

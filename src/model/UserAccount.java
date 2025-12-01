@@ -97,11 +97,11 @@ public class UserAccount implements Serializable {
         System.out.println("\n" + "═".repeat(60));
         System.out.println("                  YOUR PROGRESS");
         System.out.println("═".repeat(60));
-        System.out.println("\n👤 User: " + username);
-        System.out.println("📊 Total Sessions: " + totalQuizzesTaken);
-        System.out.println("✓ Passed: " + getPassedCount());
-        System.out.println("✗ Failed: " + getFailedCount());
-        System.out.printf("📈 Overall Average: %.1f%%%n", getOverallAverage());
+        System.out.println("\n User: " + username);
+        System.out.println(" Total Sessions: " + totalQuizzesTaken);
+        System.out.println(" Passed: " + getPassedCount());
+        System.out.println(" Failed: " + getFailedCount());
+        System.out.printf(" Overall Average: %.1f%%%n", getOverallAverage());
         System.out.println("\n" + "─".repeat(60) + "\n");
         
         if (sessionHistory.isEmpty()) {
@@ -116,11 +116,11 @@ public class UserAccount implements Serializable {
             System.out.println();
         }
         
-        System.out.println("💡 Tip: Review the failed topics and try again!");
+        System.out.println(" Tip: Review the failed topics and try again!");
     }
     
     public void displayTopicMastery() {
-        System.out.println("\n📚 TOPIC MASTERY STATUS\n");
+        System.out.println("\n TOPIC MASTERY STATUS\n");
         System.out.println("┌────────────────────────────────┬──────────┬──────────┐");
         System.out.println("│ Topic                          │ Best     │ Status   │");
         System.out.println("├────────────────────────────────┼──────────┼──────────┤");
@@ -130,7 +130,7 @@ public class UserAccount implements Serializable {
         
         for (String topic : topics) {
             int bestScore = getBestScore(topic);
-            String status = bestScore >= 8 ? "✓ Mastered" : "✗ Practice";
+            String status = bestScore >= 8 ? "✓ Mastered" : "Practice";
             System.out.printf("│ %-30s │ %2d/10    │ %-8s │%n", 
                             topic, bestScore, status);
         }
