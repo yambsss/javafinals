@@ -84,7 +84,7 @@ try {
     int answer = getUserAnswer();
     // process answer
 } catch (Exception e) {
-    System.out.println("❌ " + e.getMessage());
+    System.out.println(" " + e.getMessage());
 }
 ```
 
@@ -199,11 +199,11 @@ Enter your name: Maria Santos
 Create a 5-digit PIN code: 12345
 Confirm your PIN code: 12345
 
-✓ Account created successfully! 🎉
+ Account created successfully! 
 Your username: Maria Santos
 Your PIN: 12345
 
-⚠️  IMPORTANT: Please remember your PIN for future logins!
+  IMPORTANT: Please remember your PIN for future logins!
 ```
 
 ### Main Menu
@@ -221,7 +221,7 @@ Your PIN: 12345
 │  [4] Logout                                           │
 └────────────────────────────────────────────────────────┘
 
-📊 Quick Stats:
+ Quick Stats:
    Total Quizzes Taken: 2
    Average Score: 85.0%
    Topics Mastered: 2/7
@@ -231,7 +231,7 @@ Enter your choice: 1
 
 ### Quiz Mode
 ```
-📝 Question 1/10
+ Question 1/10
 
 What does OOP stand for?
 ──────────────────────────────────────────────────
@@ -241,7 +241,7 @@ What does OOP stand for?
   [4] Open Operating Platform
 
 Your answer (1-4): 1
-✓ YEHEYYYYY TAMA 🎉
+ YEHEYYYYY TAMA 
 ```
 
 ### Quiz Results
@@ -252,7 +252,7 @@ Your answer (1-4): 1
 Topic: Introduction to OOP
 Score: 9/10
 Percentage: 90.0%
-Status: ✓ PASSED! 🎉
+Status:  PASSED! 
 
 Congratulations! You can proceed to the next topic!
 ════════════════════════════════════════════════════════
@@ -303,3 +303,4 @@ Congratulations! You can proceed to the next topic!
 - Laboratory Exercises and Activities
 
 ---
+
